@@ -6,7 +6,7 @@ import { mergeResolvers, mergeTypeDefs } from '@graphql-tools/merge'
 
 const loadedTypes = loadFilesSync(`${__dirname}/**/*.typeDefs.js`);
 const loadedResolvers = loadFilesSync(
-	`${__dirname}/**/*.resolver.js`
+	`${__dirname}/**/*.resolvers.js`
 	);
 
 const typeDefs = mergeTypeDefs(loadedTypes);
