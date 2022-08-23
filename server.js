@@ -2,7 +2,7 @@ import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-co
 require("dotenv").config();
 import { ApolloServer } from"apollo-server";
 import schema from "./schema";
-import { getUser } from "./users/users.utils";
+import { getUser, protectResolver} from "./users/users.utils";
 
 const PORT = process.env.PORT;
 const server = new ApolloServer({
@@ -11,6 +11,7 @@ const server = new ApolloServer({
 	context: async ({ req }) => {
     return {
       loggedInUser: await getUser(req.headers.token),
+			protectResolver,
     };
 	},
 });
